@@ -1,6 +1,7 @@
 const express = require('express');
 const toDoListRouter = require('./src/routes/toDoList');
 const app = express();
+require('./config/database');
 
 app.use('/todo', toDoListRouter)
 
