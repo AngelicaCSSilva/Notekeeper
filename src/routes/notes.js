@@ -1,4 +1,5 @@
 const express = require('express');
+const Notes = require('../models/notes');
 
 const router = express.Router();
 
@@ -7,8 +8,18 @@ router.get('/', (req, res) =>{
 });
 
 
-router.post('/', (req, res) => {
-  res.statusCode(200).end();
+router.post('/', async (req, res) => {
+  const { note, date } = req.body;
+  
+  try {
+    const newNote = await Notes.create({
+      note,
+      date,
+    })
+    res.statusCode(200).json(newNote);
+  } catch (error) {
+    res.status(422).json(error);
+  }
 });
 
 module.exports = router;
