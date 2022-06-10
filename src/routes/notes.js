@@ -37,4 +37,19 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  const { note, date } = req.body;
+  const { id } = req.params;
+
+  try {
+    const updateNote = await Notes.findOneAndUpdate(id, {
+      note,
+      date,
+    }, {new: true})
+    res.status(200).json(updateNote);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+})
+
 module.exports = router;
