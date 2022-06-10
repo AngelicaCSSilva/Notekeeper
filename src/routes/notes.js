@@ -60,14 +60,15 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const { note, date, title } = req.body;
   const { id } = req.params;
+  const notes = await Notes.findById(id);
 
   try {
-    const updateNote = await Notes.findOneAndUpdate(id, {
+    await notes.update({
       title,
       note,
       date,
-    }, {new: true})
-    res.status(200).json(updateNote);
+    });
+    res.redirect('/');
   } catch (error) {
     res.status(422).json(error);
   }
