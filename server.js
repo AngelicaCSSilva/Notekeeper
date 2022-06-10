@@ -1,12 +1,14 @@
 const express = require('express');
 const toDoListRouter = require('./src/routes/notes');
 const path = require ('path');
+const methodOverride = require('method-override');
 
 const app = express();
 require('./config/database');
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
