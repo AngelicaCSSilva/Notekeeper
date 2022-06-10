@@ -1,0 +1,55 @@
+<%- include('../layout/header') %>
+<%- include('../layout/nav') %>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-four-fifths">
+        <h1 class="title size-4">Listas de anotações</h1>
+      </div>
+      <div class="column is-one-fifth">
+        <a href="/new" class="button is-success is-small">Nova Anotação</a>
+      </div>
+    </div>
+
+    <div class="columns is-multiline">
+      <% notes.forEach(notes => { %>
+      <div class="column is-one-quarter">
+        <div class="card note">
+          <div class="card-content">
+            <p class="subtitle is-size-5 has-text-weight-bold">
+              <%= notes.title %>
+            </p>
+            <p class="subtitle is-size-6">
+              <%= notes.note %>
+            </p>
+            <hr />
+            <time class="has-text-grey-light" datetime="2016-1-1">
+              <%= notes.date.toLocaleDateString('pt-br') %>
+            </time>
+          </div>
+          <footer class="card-footer has-background-white-ter">
+            <p class="card-footer-item">
+              <span>
+                <a href="show.html">Ver</a>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              <span>
+                <a href="note-form.html">Editar</a>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              <span>
+                <a href="#" class="has-text-danger">Remover</a>
+              </span>
+            </p>
+          </footer>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../layout/footer') %>
