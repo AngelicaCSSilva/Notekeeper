@@ -78,8 +78,8 @@ router.delete('/:id', async(req, res) => {
   const { id } = req.params;
 
   try {
-    const deletedNote = await Notes.findByIdAndDelete(id)
-    res.status(200).json(deletedNote);
+    await Notes.findByIdAndDelete(id)
+    res.redirect('/');
   } catch (error) {
     res.status(422).json(error);
   }
