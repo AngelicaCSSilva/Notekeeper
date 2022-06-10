@@ -21,6 +21,16 @@ router.get('/new', async(req, res) => {
   }
 })
 
+router.get('/:id/edit', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const notes = await Notes.findById(id);
+    res.status(200).render('pages/edit', { notes: notes })
+  } catch (error) {
+    res.status(500).json(error);
+  }
+})
+
 router.get('/:id', async (req, res) =>{
   try {
     const { id } = req.params;
