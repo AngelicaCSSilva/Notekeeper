@@ -11,6 +11,15 @@ router.get('/', async (req, res) =>{
     res.status(500).json(error);
   }
 });
+
+router.get('/:id', async (req, res) =>{
+  try {
+    const { id } = req.params;
+    const oldNote = await Notes.findById(id)
+    res.status(200).json(oldNote);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 
