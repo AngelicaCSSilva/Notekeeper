@@ -10,13 +10,13 @@ router.get('/', (req, res) =>{
 
 router.post('/', async (req, res) => {
   const { note, date } = req.body;
-  
+
   try {
     const newNote = await Notes.create({
       note,
       date,
     })
-    res.statusCode(200).json(newNote);
+    res.status(200).json(newNote);
   } catch (error) {
     res.status(422).json(error);
   }
