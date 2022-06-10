@@ -1,0 +1,12 @@
+<%- include('../layout/header') %>
+<%- include('../layout/nav') %>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title size-4">Nova Anotação</h1>
+
+    <%- include('../layout/form',  { method: 'post', url: '/', notes: notes}) %>
+  </div>
+</section>
+
+<%- include('../layout/footer') %>
