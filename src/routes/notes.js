@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/', async (req, res) =>{
   try {
-    const oldNotes = await Notes.find({})
-    res.status(200).json(oldNotes);
+    const notes = await Notes.find({});
+    res.status(200).render('pages/index', { notes: notes });
   } catch (error) {
     res.status(500).json(error);
   }
