@@ -63,7 +63,7 @@ router.put('/:id', async (req, res) => {
   const notes = await Notes.findById(id);
 
   try {
-    await notes.update({
+    await notes.updateOne({
       title,
       note,
       date,
