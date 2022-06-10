@@ -1,0 +1,14 @@
+<%- include('../layout/header') %>
+<%- include('../layout/nav') %>
+
+<section class="section">
+  <div class="container">
+    <h1 class="title size-4">Editar Anotação</h1>
+
+    <%- include('../layout/form',  { url: `/${notes.id}/?_method=put`, notes: notes}) %>
+  </div>
+</section>
+
+</body>
+<script src="/script/button.js"></script>
+</html>
