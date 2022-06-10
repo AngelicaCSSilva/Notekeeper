@@ -24,7 +24,7 @@ router.get('/new', async(req, res) => {
 router.get('/:id', async (req, res) =>{
   try {
     const { id } = req.params;
-    const oldNote = await Notes.findById(id)
+    const oldNote = await Notes.findById(id);
     res.status(200).json(oldNote);
   } catch (error) {
     res.status(500).json(error);
@@ -47,11 +47,12 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const { note, date } = req.body;
+  const { note, date, title } = req.body;
   const { id } = req.params;
 
   try {
     const updateNote = await Notes.findOneAndUpdate(id, {
+      title,
       note,
       date,
     }, {new: true})
