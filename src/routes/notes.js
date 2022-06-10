@@ -3,8 +3,14 @@ const Notes = require('../models/notes');
 
 const router = express.Router();
 
-router.get('/', (req, res) =>{
-  res.send('Conectado.')
+router.get('/', async (req, res) =>{
+  try {
+    const oldNotes = await Notes.find({})
+    res.status(200).json(oldNotes);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 });
 
 
