@@ -12,6 +12,15 @@ router.get('/', async (req, res) =>{
   }
 });
 
+router.get('/new', async(req, res) => {
+  try {
+    const note = new Notes();
+    res.status(200).render('pages/new', { notes: note });
+  } catch (error) {
+    res.status(422).json(error);
+  }
+})
+
 router.get('/:id', async (req, res) =>{
   try {
     const { id } = req.params;
