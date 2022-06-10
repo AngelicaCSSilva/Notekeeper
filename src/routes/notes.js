@@ -31,18 +31,19 @@ router.get('/:id', async (req, res) =>{
   }
 });
 
-
 router.post('/', async (req, res) => {
-  const { note, date } = req.body;
+  const { note, date, title } = req.body;
+  const newNote = new Notes({
+    title,
+    note,
+    date
+  })
 
   try {
-    const newNote = await Notes.create({
-      note,
-      date,
-    })
-    res.status(200).json(newNote);
+    await newNote.save();
+    res.redirect('/')
   } catch (error) {
-    res.status(422).json(error);
+    res.status(500).json(error);
   }
 });
 
