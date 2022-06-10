@@ -2,15 +2,37 @@
   <div class="field">
     <label class="label">Title</label>
     <div class="control">
+      <input
+        class="input"
+        id="title-input"
         value="<%= notes.title %>"
+        type="text"
+        maxlength="50"
+        name="title"
+        placeholder="Title"
+      >
       <p class="is-danger help">Title should be present</p>
     </div>
     <label class="label">Note</label>
     <div class="control">
-      <input class="input" type="text" name="note" placeholder="Note...">
-      <p class="is-danger help">Note should be present</p>
+      <textarea
+        style=" height:100px "
+        class="input"
+        id="note-input"
+        name="note"
+        maxlength="500"
+      ><%= notes.note %></textarea>
+      <p class="is-danger help">Note should be present. Max length is 500 char.</p>
     </div>
   </div>
-  <button type="submit" class="button is-success">Salvar</button>
+  <button
+    type="submit"
+    id="button"
+    disabled
+    class="button is-success"
+  >
+    Salvar
+  </button>
   <a href="/" class="button">Cancelar</a>
+  
 </form>
