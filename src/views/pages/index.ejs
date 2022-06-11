@@ -8,7 +8,7 @@
         <h1 class="title size-4">Listas de anotações</h1>
       </div>
       <div class="column is-one-fifth">
-        <a href="/new" class="button is-success is-small">Nova Anotação</a>
+        <a href="/new" class="button new-button">Nova Anotação</a>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
       <div class="column is-one-quarter">
         <div class="card note">
           <div class="card-content">
-            <p class="subtitle is-size-5 has-text-weight-bold">
+            <p class="subtitle note-title is-size-5 has-text-weight-bold">
               <%= notes.title %>
             </p>
             <p class="subtitle has-text-justified is-size-6">
@@ -28,7 +28,7 @@
               <%= notes.date.toLocaleDateString('pt-br') %>
             </time>
           </div>
-          <footer class="card-footer has-background-white-ter">
+          <footer class="card-footer ">
             <p class="card-footer-item">
               <span>
                 <a href="/<%= notes.id %>/edit">Editar</a>

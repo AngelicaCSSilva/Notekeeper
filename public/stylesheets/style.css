@@ -1,3 +1,63 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #1f1d2b;
+  color: white;
+}
+
+.title, .label{
+  color: white;
+}
+
+
 .note {
-  background-color: #fad8ea;
+  background-color: #353546;
+  color: white;
+}
+
+.subtitle  {
+  color: white;
+}
+
+.note-title {
+  color: #e9a388;
+}
+
+ hr {
+  margin-bottom: 0.5rem;
+  background-color: #7d7d7d;
+ }
+
+
+.card-footer-item a {
+  color: #f4b745
+}
+.card-footer-item {
+  background-color: #272636;
+}
+
+.new-button {
+  background-color: #6f6fc8;
+  border-color: transparent;
+  color: white;
+}
+
+.new-button:hover {
+  background-color: #572780;
+  border-color: transparent;
+  color: white;
+}
+
+.new-button:disabled {
+  background-color: #292e30;
+  border-color: transparent;
+  color: white;
+}
+
+#title-input, #note-input {
+  background-color: #353546;
+  color: white;
 }
